@@ -9,3 +9,6 @@ tmp
 
 # The development sqlite file
 database/development.sqlite
+
+# Yarn Errors
+yarn-error.log
