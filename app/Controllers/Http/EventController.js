@@ -11,6 +11,14 @@ class EventController {
         return events
     }
 
+    async show({ params }) {
+        const event = await Event.find(params.id)
+        await event.load('user', builder => {
+            builder.select(['id', 'name'])
+        })
+        return event
+    }
+
     async store({ request, response }) {
         const data = request.only([
             'title',

@@ -49,3 +49,21 @@ test('it should be able to list events in the database', async ({
     assert.equal(response.body[0].title, event.title)
     assert.equal(response.body[0].user.id, user.id)
 })
+
+test('it should be able to show single event', async ({ assert, client }) => {
+    const user = await Factory.model('App/Models/User').create()
+    const event = await Factory.model('App/Models/Event').create({
+        user_id: user.id,
+    })
+
+    await user.events().save(event)
+
+    const response = await client
+        .get(`/events/${event.id}`)
+        .loginVia(user, 'jwt')
+        .end()
+
+    response.assertStatus(200)
+    assert.equal(response.body.title, event.title)
+    assert.equal(response.body.user.id, user.id)
+})
