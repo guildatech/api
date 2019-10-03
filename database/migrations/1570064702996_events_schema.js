@@ -6,7 +6,7 @@ class EventsSchema extends Schema {
         this.create('events', table => {
             table.increments()
             table
-                .integer('created_by')
+                .integer('user_id')
                 .unsigned()
                 .references('id')
                 .inTable('users')

@@ -13,7 +13,7 @@ class Event {
             location_city_state: 'required',
             start_time: 'required',
             event_time: 'required',
-            created_by: 'required|exists:users,id',
+            user_id: 'required|exists:users,id',
         }
     }
 

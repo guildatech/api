@@ -22,5 +22,6 @@ Route.post('/register', 'RegisterUserController.store').validator(
 )
 
 Route.group(() => {
+    Route.get('/events', 'EventController.index')
     Route.post('/events', 'EventController.store').validator('Event')
 }).middleware('auth')
