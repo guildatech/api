@@ -1,4 +1,10 @@
+const Antl = use('Antl')
+
 class Event {
+    get validateAll() {
+        return true
+    }
+
     get rules() {
         return {
             title: 'required',
@@ -9,6 +15,10 @@ class Event {
             event_time: 'required',
             created_by: 'required|exists:users,id',
         }
+    }
+
+    get messages() {
+        return Antl.list('validation')
     }
 }
 
