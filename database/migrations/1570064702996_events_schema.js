@@ -18,6 +18,13 @@ class EventsSchema extends Schema {
             table.string('location_city_state').notNullable()
             table.date('start_time').notNullable()
             table.time('event_time', { precision: 4 }).notNullable()
+            table.string('event_type')
+            table.string('language')
+            table.integer('dificult_level')
+            table.integer('max_attendess')
+            table.boolean('is_public')
+            table.boolean('require_registration')
+            table.string('website')
             table.timestamps()
         })
     }
