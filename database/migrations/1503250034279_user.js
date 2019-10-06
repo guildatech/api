@@ -11,6 +11,10 @@ class UserSchema extends Schema {
             table.string('github')
             table.string('email').notNullable()
             table.string('password').notNullable()
+            table
+                .boolean('is_admin')
+                .defaultTo(false)
+                .notNullable()
             table.timestamps()
         })
     }

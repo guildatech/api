@@ -20,3 +20,9 @@ Route.post('/reset', 'ResetPasswordController.store').validator('Reset')
 Route.post('/register', 'RegisterUserController.store').validator(
     'RegisterUser'
 )
+
+Route.group(() => {
+    Route.get('/events', 'EventController.index')
+    Route.get('/events/:id', 'EventController.show')
+    Route.post('/events', 'EventController.store').validator('Event')
+}).middleware('auth')

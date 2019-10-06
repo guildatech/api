@@ -29,3 +29,15 @@ Factory.blueprint('App/Models/Token', (faker, i, data = {}) => {
         ...data,
     }
 })
+
+Factory.blueprint('App/Models/Event', (faker, i, data = {}) => {
+    return {
+        title: faker.sentence({ words: 5 }),
+        description: faker.paragraph(),
+        location_addres: faker.string({ lenght: 15 }),
+        location_city_state: faker.string({ lenght: 15 }),
+        start_time: faker.date({ string: true, american: false }),
+        event_time: faker.hour(),
+        ...data,
+    }
+})
