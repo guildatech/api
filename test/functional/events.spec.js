@@ -21,6 +21,13 @@ test('it should be able to create events', async ({ assert, client }) => {
             location_city_state: 'SP/SP',
             start_time: '2019-11-25',
             event_time: '12:30',
+            event_type: 'presentation',
+            language: 'portuguese',
+            dificult_level: '1',
+            max_attendess: 32,
+            is_public: 1,
+            require_registration: 1,
+            website: 'google.com',
             user_id: user.id,
         })
         .end()

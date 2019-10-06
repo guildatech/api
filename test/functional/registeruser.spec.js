@@ -24,6 +24,6 @@ test('it should be able to register user to the database', async ({
         .send(sessionPayload)
         .end()
 
-    response.assertStatus(204)
+    response.assertStatus(201)
     assert.exists(response)
 })
