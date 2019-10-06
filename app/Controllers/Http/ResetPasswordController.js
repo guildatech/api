@@ -18,6 +18,8 @@ class ResetPasswordController {
         const user = await userToken.user().fetch()
         user.password = password
         await user.save()
+
+        return response.status(201).json({ mensage: 'Password reset' })
     }
 }
 

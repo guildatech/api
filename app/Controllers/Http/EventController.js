@@ -28,6 +28,13 @@ class EventController {
             'start_time',
             'event_time',
             'user_id',
+            'event_type',
+            'language',
+            'dificult_level',
+            'max_attendess',
+            'is_public',
+            'require_registration',
+            'website',
         ])
 
         const event = await Event.create(data)

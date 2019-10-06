@@ -2,9 +2,10 @@
 const User = use('App/Models/User')
 
 class RegisterUserController {
-    async store({ request }) {
+    async store({ request, response }) {
         const data = request.only(['email', 'username', 'name', 'password'])
-        await User.create(data)
+        const user = await User.create(data)
+        if (user) return response.status(201).json({ message: 'user created' })
     }
 }
 
