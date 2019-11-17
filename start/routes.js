@@ -17,6 +17,21 @@ const Route = use('Route')
 Route.post('/sessions', 'SessionController.store').validator('Session')
 Route.post('/forgot', 'ForgotPasswordController.store').validator('Forgot')
 Route.post('/reset', 'ResetPasswordController.store').validator('Reset')
-Route.post('/register', 'RegisterUserController.store').validator(
-    'RegisterUser'
-)
+Route.post('/register', 'RegisterUserController.store').validator('RegisterUser')
+
+/* 
+Routes for person
+*/
+
+Route.get('/person/:id', 'PersonController.get')
+
+/* 
+Routes for user
+*/
+
+Route.get('/user/:id', 'UserController.get')
+/*
+Routes for Constans
+*/
+Route.get('constants/:type', 'ConstantsController.store')
+Route.get('/', () => 'Welcome to the GuildaTech')
