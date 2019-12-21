@@ -58,7 +58,7 @@ test('it should be able to reset password of the account', async ({
         })
         .end()
 
-    response.assertStatus(204)
+    response.assertStatus(201)
 
     await user.reload()
     const checkPassword = await Hash.verify('123456', user.password)
