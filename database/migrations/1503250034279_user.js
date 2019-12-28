@@ -20,6 +20,10 @@ class UserSchema extends Schema {
                 .unsigned()
                 .references('id')
                 .inTable('person')
+            table
+                .boolean('is_admin')
+                .defaultTo(false)
+                .notNullable()
             table.timestamps()
         })
     }
