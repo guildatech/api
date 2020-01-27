@@ -22,6 +22,10 @@ class User extends Model {
     events() {
         return this.hasMany('App/Models/Event')
     }
+
+    blogPosts() {
+        return this.hasMany('App/Models/BlogPost')
+    }
 }
 
 module.exports = User

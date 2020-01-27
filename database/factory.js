@@ -48,3 +48,11 @@ Factory.blueprint('App/Models/Event', (faker, i, data = {}) => {
         ...data,
     }
 })
+
+Factory.blueprint('App/Models/BlogPost', (faker, i, data = {}) => {
+    return {
+        post_title: faker.sentence({ words: 4 }),
+        post_body: faker.paragraph(),
+        ...data,
+    }
+})

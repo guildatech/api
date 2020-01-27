@@ -26,3 +26,12 @@ Route.group(() => {
     Route.get('/events/:id', 'EventController.show')
     Route.post('/events', 'EventController.store').validator('Event')
 }).middleware('auth')
+
+Route.group(() => {
+    Route.get('/blog_posts', 'BlogPostController.index')
+    Route.get('/blog_posts/:id', 'BlogPostController.show')
+    Route.post('/blog_posts', 'BlogPostController.store').validator('BlogPost')
+    Route.put('/blog_posts/:id', 'BlogPostController.update').validator(
+        'BlogPost'
+    )
+}).middleware('auth')
