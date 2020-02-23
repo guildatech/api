@@ -35,3 +35,9 @@ Route.group(() => {
         'BlogPost'
     )
 }).middleware('auth')
+	
+Route.get('/person/:id', 'PersonController.get')
+Route.get('/user/:id', 'UserController.get')
+
+Route.get('constants/:type', 'ConstantsController.store')
+Route.get('/', () => 'Welcome to the GuildaTech')
