@@ -1,6 +1,7 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const User = use('App/Models/User')
 const Person = use('App/Models/Person')
+const Token = use('App/Models/Token')
 const Config = use('Config')
 const { errors } = Config.get('errors')
 
@@ -32,6 +33,18 @@ class UserController {
             return
         }
         response.send(found)
+    }
+    async getByToken({ request, response }) {
+        const { token } = request.params
+        const found = await Token.query().where({token})
+        if (!found) {
+            response.status(406).json({
+                error: errors.defaults.NOT_FOUND('user'),
+            })
+            return
+        } 
+        const user = await User.find(found.user_id)
+        response.send(user)
     }
 }
 

@@ -30,6 +30,10 @@ class User extends Model {
     person() {
         return this.hasOne('App/Models/Person')
     }
+    static search(params) {
+
+        return User.query().where(params).fetch()
+    }
 }
 
 module.exports = User

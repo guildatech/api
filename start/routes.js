@@ -15,6 +15,8 @@
 const Route = use('Route')
 
 Route.post('/sessions', 'SessionController.store').validator('Session')
+Route.get('/session', 'SessionController.get')
+Route.get('/sessions', 'SessionController.index')
 Route.post('/forgot', 'ForgotPasswordController.store').validator('Forgot')
 Route.post('/reset', 'ResetPasswordController.store').validator('Reset')
 Route.post('/register', 'RegisterUserController.store').validator(
@@ -29,6 +31,7 @@ Route.group(() => {
 
 Route.group(() => {
     Route.get('/blog_posts', 'BlogPostController.index')
+    Route.get('/blog_posts/pagination', 'BlogPostController.pagination')
     Route.get('/blog_posts/:id', 'BlogPostController.show')
     Route.post('/blog_posts', 'BlogPostController.store').validator('BlogPost')
     Route.put('/blog_posts/:id', 'BlogPostController.update').validator(
