@@ -17,6 +17,15 @@ class BlogPost extends Model {
             })
             .fetch()
     }
+    static pagination(params) {
+        let pagination = { page: params.page || 1, size: params.size || 10 };
+        delete params.page;
+        delete params.size;
+       
+
+        return BlogPost.query().where(params).paginate(pagination.page , pagination.size)
+    }
+
 
     static async getOneById(id) {
         const blogPost = await BlogPost.findOrFail(id)
