@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
@@ -11,4 +11,3 @@ class SocialMedia extends Model {
         return this.belongsTo('App/Models/Person')
     }
 }
-

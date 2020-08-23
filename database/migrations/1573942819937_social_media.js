@@ -1,7 +1,7 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
- class SocialMediaSchema extends Schema {
+class SocialMediaSchema extends Schema {
     up() {
         this.create('social_medias', table => {
             table.increments()
@@ -16,9 +16,9 @@ const Schema = use('Schema')
         })
     }
 
-     down() {
+    down() {
         this.drop('social_medias')
     }
 }
 
- module.exports = SocialMediaSchema
+module.exports = SocialMediaSchema

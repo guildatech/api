@@ -7,7 +7,7 @@ class RegisterUserController {
         const data = request.only(['email', 'username', 'name', 'password'])
         const person = await Person.create({
             contactEmail: request.input('email'),
-            name: request.input('name')
+            name: request.input('name'),
         })
         data.person = person.id
         const user = await User.create(data)

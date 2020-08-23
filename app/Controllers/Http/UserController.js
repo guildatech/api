@@ -34,15 +34,16 @@ class UserController {
         }
         response.send(found)
     }
+
     async getByToken({ request, response }) {
         const { token } = request.params
-        const found = await Token.query().where({token})
+        const found = await Token.query().where({ token })
         if (!found) {
             response.status(406).json({
                 error: errors.defaults.NOT_FOUND('user'),
             })
             return
-        } 
+        }
         const user = await User.find(found.user_id)
         response.send(user)
     }

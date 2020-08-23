@@ -5,15 +5,20 @@ class UserSchema extends Schema {
     up() {
         this.create('users', table => {
             table.increments('id')
-            table.string('username').notNullable()
-            .unique()
+            table
+                .string('username')
+                .notNullable()
+                .unique()
             table.string('name').notNullable()
             table
                 .integer('person')
                 .unsigned()
                 .references('id')
                 .inTable('person')
-            table.string('email').notNullable().unique()
+            table
+                .string('email')
+                .notNullable()
+                .unique()
             table.string('password').notNullable()
             table
                 .boolean('is_admin')

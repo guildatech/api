@@ -26,13 +26,15 @@ class User extends Model {
     blogPosts() {
         return this.hasMany('App/Models/BlogPost')
     }
-    
+
     person() {
         return this.hasOne('App/Models/Person')
     }
-    static search(params) {
 
-        return User.query().where(params).fetch()
+    static search(params) {
+        return User.query()
+            .where(params)
+            .fetch()
     }
 }
 
