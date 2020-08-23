@@ -37,6 +37,15 @@ class BlogPostController {
 
         response.status(200).json(blogPost)
     }
+
+    async delete({ params, response }) {
+        const { id } = params
+        const toDelete = await BlogPost.find(id)
+
+        await toDelete.delete()
+
+        response.status(200)
+    }
 }
 
 module.exports = BlogPostController

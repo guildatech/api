@@ -10,8 +10,6 @@ class BlogPostSchema extends Schema {
                 .unsigned()
                 .references('id')
                 .inTable('users')
-                .onDelete('SET NULL')
-                .onUpdate('CASCADE')
             table.string('post_title').notNullable()
             table.text('post_body').notNullable()
             table.timestamps()

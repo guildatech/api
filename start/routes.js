@@ -33,6 +33,7 @@ Route.group(() => {
     Route.get('/blog_posts', 'BlogPostController.index')
     Route.get('/blog_posts/pagination', 'BlogPostController.pagination')
     Route.get('/blog_posts/:id', 'BlogPostController.show')
+    Route.delete('/blog_posts/:id', 'BlogPostController.delete')
     Route.post('/blog_posts', 'BlogPostController.store').validator('BlogPost')
     Route.put('/blog_posts/:id', 'BlogPostController.update').validator(
         'BlogPost'
