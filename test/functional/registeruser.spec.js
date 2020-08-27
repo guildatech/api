@@ -10,20 +10,18 @@ test('it should be able to register user to the database', async ({
     assert,
     client,
 }) => {
-    const sessionPayload = {
+    const user = {
         username: 'JohnDoe',
         name: 'John Doe',
         email: 'joe@example.com',
         password: '123456',
     }
 
-    await Factory.model('App/Models/User').create(sessionPayload)
-
     const response = await client
         .post('/register')
-        .send(sessionPayload)
+        .send(user)
         .end()
 
     response.assertStatus(201)
-    assert.exists(response)
+    assert.exists(user)
 })
